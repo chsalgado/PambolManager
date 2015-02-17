@@ -46,9 +46,9 @@ namespace PambolManager
             app.UseOAuthBearerTokens(OAuthOptions);
 
             // Uncomment the following lines to enable logging in with third party login providers
-            //app.UseMicrosoftAccountAuthentication(
-            //    clientId: "",
-            //    clientSecret: "");
+            app.UseMicrosoftAccountAuthentication(
+                clientId: "",
+                clientSecret: "");
 
             //app.UseTwitterAuthentication(
             //    consumerKey: "",
@@ -58,11 +58,11 @@ namespace PambolManager
             //    appId: "",
             //    appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "",
+                ClientSecret = ""
+            });
         }
     }
 }
