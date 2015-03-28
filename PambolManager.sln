@@ -5,6 +5,14 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PambolManager", "PambolManager\PambolManager.csproj", "{22E3520A-B966-441B-88A8-046ED2F9D4F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PambolManager.Domain", "PambolManager.Domain\PambolManager.Domain.csproj", "{D00AD175-D233-4589-803B-A66271B59B70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PambolManager.API", "PambolManager.API\PambolManager.API.csproj", "{7C688729-283D-43F3-8C99-3DC51C19250F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PambolManager.API.Test", "PambolManager.API.Test\PambolManager.API.Test.csproj", "{A9DEFF23-C745-4004-8E33-CA98B550A908}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PambolManager.WebHost", "PambolManager.WebHost\PambolManager.WebHost.csproj", "{FCB521AD-A851-452D-A073-B0B658D30D50}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +23,22 @@ Global
 		{22E3520A-B966-441B-88A8-046ED2F9D4F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22E3520A-B966-441B-88A8-046ED2F9D4F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22E3520A-B966-441B-88A8-046ED2F9D4F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D00AD175-D233-4589-803B-A66271B59B70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D00AD175-D233-4589-803B-A66271B59B70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D00AD175-D233-4589-803B-A66271B59B70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D00AD175-D233-4589-803B-A66271B59B70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C688729-283D-43F3-8C99-3DC51C19250F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C688729-283D-43F3-8C99-3DC51C19250F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C688729-283D-43F3-8C99-3DC51C19250F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C688729-283D-43F3-8C99-3DC51C19250F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9DEFF23-C745-4004-8E33-CA98B550A908}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9DEFF23-C745-4004-8E33-CA98B550A908}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9DEFF23-C745-4004-8E33-CA98B550A908}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9DEFF23-C745-4004-8E33-CA98B550A908}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCB521AD-A851-452D-A073-B0B658D30D50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCB521AD-A851-452D-A073-B0B658D30D50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCB521AD-A851-452D-A073-B0B658D30D50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCB521AD-A851-452D-A073-B0B658D30D50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5603D9CD-291D-4DD0-B46F-DB2CFE37CB91}</ProjectGuid>
+    <ProjectGuid>{D00AD175-D233-4589-803B-A66271B59B70}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PambolManager.Domain</RootNamespace>

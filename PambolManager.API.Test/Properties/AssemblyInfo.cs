@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PambolManager.Domain")]
+[assembly: AssemblyTitle("PambolManager.API.Test")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PambolManager.Domain")]
+[assembly: AssemblyProduct("PambolManager.API.Test")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("4255f627-4408-413f-b546-ac2bcafba61d")]
+[assembly: Guid("4b1501a7-ab92-4bf5-97a5-7e7e283091bd")]
 
 // Version information for an assembly consists of the following four values:
 //
