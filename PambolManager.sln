@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PambolManager.API", "Pambol
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PambolManager.API.Test", "PambolManager.API.Test\PambolManager.API.Test.csproj", "{A9DEFF23-C745-4004-8E33-CA98B550A908}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PambolManager.WebHost", "PambolManager.WebHost\PambolManager.WebHost.csproj", "{FCB521AD-A851-452D-A073-B0B658D30D50}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PambolManager.WebHost", "PambolManager.WebHost\PambolManager.WebHost.csproj", "{42B6CC9E-13E9-40DC-B627-C63F69A89626}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{A9DEFF23-C745-4004-8E33-CA98B550A908}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9DEFF23-C745-4004-8E33-CA98B550A908}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9DEFF23-C745-4004-8E33-CA98B550A908}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FCB521AD-A851-452D-A073-B0B658D30D50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FCB521AD-A851-452D-A073-B0B658D30D50}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FCB521AD-A851-452D-A073-B0B658D30D50}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FCB521AD-A851-452D-A073-B0B658D30D50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42B6CC9E-13E9-40DC-B627-C63F69A89626}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42B6CC9E-13E9-40DC-B627-C63F69A89626}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42B6CC9E-13E9-40DC-B627-C63F69A89626}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42B6CC9E-13E9-40DC-B627-C63F69A89626}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

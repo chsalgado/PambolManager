@@ -11,7 +11,7 @@ namespace PambolManager.API.Config
     {
         public static void Configure (HttpConfiguration config)
         {
-
+            config.MapHttpAttributeRoutes();
         }
     }
 }
