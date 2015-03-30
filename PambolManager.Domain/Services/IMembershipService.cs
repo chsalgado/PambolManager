@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace PambolManager.Domain.Services
 {
-    public interface IMembershipService
+    public interface IMembershipService : IDisposable
     {
-        Task<IdentityResult> RegisterUserAsync(User userModel);
+        Task<IdentityResult> RegisterUserAsync(UserModel userModel);
         Task<IdentityUser> FindUserAsync(string userName, string password);
     }
 }

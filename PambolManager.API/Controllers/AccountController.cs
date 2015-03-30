@@ -23,7 +23,7 @@ namespace PambolManager.API.Controllers
         // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
-        public async Task<IHttpActionResult> Register(User userModel)
+        public async Task<IHttpActionResult> Register(UserModel userModel)
         {
             if (!ModelState.IsValid)
             {

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PambolManager.Domain.Entities.Core
 {
-    public interface IEntityRepository<T> where T : class, IEntity, new()
+    public interface IEntityRepository<T> : IDisposable where T : class, IEntity, new()
     {
         IQueryable<T> AllIncluding(
             params Expression<Func<T, object>>[] includeProperties);

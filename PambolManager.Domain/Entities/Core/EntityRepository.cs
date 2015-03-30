@@ -112,5 +112,11 @@ namespace PambolManager.Domain.Entities.Core
         {
             return _entitiesContext;
         }
+
+        public void Dispose()
+        {
+            _entitiesContext.Dispose();
+        }
+
     }
 }
