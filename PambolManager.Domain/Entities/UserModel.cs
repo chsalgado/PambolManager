@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PambolManager.Domain.Entities
 {
-    public class User : IEntity
+    public class UserModel : IEntity
     {
         [Key]
         public Guid Key { get; set; }
