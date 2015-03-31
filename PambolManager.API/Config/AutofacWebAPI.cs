@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
 using PambolManager.Domain.Entities.Core;
+using PambolManager.Domain.Services;
 using System.Data.Entity;
 using System.Reflection;
 using System.Web.Http;
@@ -29,9 +30,14 @@ namespace PambolManager.API.Config
 
             // Register repositories by using Autofac's OpenGenerics feature
             // More info: http://code.google.com/p/autofac/wiki/OpenGenerics
-            builder.RegisterGeneric(typeof(EntityRepository<>)).
-                As(typeof(IEntityRepository<>)).
-                InstancePerRequest();
+            builder.RegisterGeneric(typeof(EntityRepository<>))
+                .As(typeof(IEntityRepository<>))
+                .InstancePerRequest();
+
+            // Register services
+            builder.RegisterType<TournamentService>()
+                .As<ITournamentsService>()
+                .InstancePerRequest();
 
             return builder.Build();
         }

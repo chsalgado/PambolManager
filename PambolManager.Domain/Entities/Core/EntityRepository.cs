@@ -38,7 +38,6 @@ namespace PambolManager.Domain.Entities.Core
             IQueryable<T> query = _entitiesContext.Set<T>();
             foreach (var includeProperty in includeProperties)
             {
-
                 query = query.Include(includeProperty);
             }
 
