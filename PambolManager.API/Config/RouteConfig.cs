@@ -11,9 +11,9 @@ namespace PambolManager.API.Config
 
             routes.MapHttpRoute(
                 "DefaultHttpRoute",
-                "api/{controller}/{key}",
-                defaults: new { key = RouteParameter.Optional },
-                constraints: new { key = new GuidRouteConstraint() });
+                "api/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional },
+                constraints: new { id = new GuidRouteConstraint() });
         }
     }
 }

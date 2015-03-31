@@ -7,7 +7,7 @@ namespace PambolManager.Domain.Entities
     public class Score : IEntity
     {
         [Key]
-        public Guid Key { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         public int HomeScore { get; set; }

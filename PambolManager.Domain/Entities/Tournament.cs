@@ -1,5 +1,6 @@
 ﻿using PambolManager.Domain.Entities.Core;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace PambolManager.Domain.Entities
@@ -7,7 +8,7 @@ namespace PambolManager.Domain.Entities
     public class Tournament : IEntity
     {
         [Key]
-        public Guid Key { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         public string TournamentName { get; set; }
@@ -20,5 +21,15 @@ namespace PambolManager.Domain.Entities
 
         public DateTime BeginDate { get; set; }
         public DateTime EndDate { get; set; }
+
+        // N:1 relationship with FieldManager
+        public string FieldManagerId { get; set; }
+        public virtual FieldManager FieldManager { get; set; }
+
+        // 1:N relationship with Teams
+        public virtual ICollection<Team> Teams { get; set; }
+
+        // 1:N relationship with Rounds
+        public virtual ICollection<Round> Rounds { get; set; }
     }
 }

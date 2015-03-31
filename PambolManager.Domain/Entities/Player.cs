@@ -7,7 +7,7 @@ namespace PambolManager.Domain.Entities
     public class Player : IEntity
     {
         [Key]
-        public Guid Key { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         public string Name { get; set; }
@@ -18,5 +18,9 @@ namespace PambolManager.Domain.Entities
         public int Age { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
+
+        // N:1 relationship with Team
+        public Guid TeamId { get; set; }
+        public virtual Team Team { get; set; }
     }
 }

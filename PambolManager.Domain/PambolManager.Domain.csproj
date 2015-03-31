@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\FieldManager.cs" />
     <Compile Include="Entities\Tournament.cs" />
     <Compile Include="Entities\Core\EntitiesContext.cs" />
     <Compile Include="Entities\Core\EntityRepository.cs" />
@@ -64,7 +65,7 @@
     <Compile Include="Entities\Round.cs" />
     <Compile Include="Entities\Score.cs" />
     <Compile Include="Entities\Team.cs" />
-    <Compile Include="Entities\UserModel.cs" />
+    <Compile Include="Entities\RegisterViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IMembershipService.cs" />
     <Compile Include="Services\MembershipService.cs" />

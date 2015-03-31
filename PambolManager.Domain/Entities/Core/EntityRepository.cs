@@ -45,9 +45,9 @@ namespace PambolManager.Domain.Entities.Core
             return query;
         }
 
-        public T GetSingle(Guid key)
+        public T GetSingle(Guid id)
         {
-            return GetAll().FirstOrDefault(x => x.Key == key);
+            return GetAll().FirstOrDefault(x => x.Id == id);
         }
 
         public virtual IQueryable<T> FindBy(Expression<Func<T, bool>> predicate)
@@ -55,21 +55,21 @@ namespace PambolManager.Domain.Entities.Core
             return _entitiesContext.Set<T>().Where(predicate);
         }
 
-        public virtual PaginatedList<T> Paginate<TKey>(
+        public virtual PaginatedList<T> Paginate<TId>(
                     int pageIndex, int pageSize,
-                    Expression<Func<T, TKey>> keySelector)
+                    Expression<Func<T, TId>> idSelector)
         {
-            return Paginate(pageIndex, pageSize, keySelector, null);
+            return Paginate(pageIndex, pageSize, idSelector, null);
         }
 
-        public virtual PaginatedList<T> Paginate<TKey>(
+        public virtual PaginatedList<T> Paginate<TId>(
             int pageIndex, int pageSize,
-            Expression<Func<T, TKey>> keySelector,
+            Expression<Func<T, TId>> idSelector,
             Expression<Func<T, bool>> predicate,
             params Expression<Func<T, object>>[] includeProperties)
         {
             IQueryable<T> query =
-                AllIncluding(includeProperties).OrderBy(keySelector);
+                AllIncluding(includeProperties).OrderBy(idSelector);
 
             query = (predicate == null)
                 ? query
