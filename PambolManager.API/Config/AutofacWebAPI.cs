@@ -1,5 +1,7 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
+using PambolManager.Domain.Entities.Core;
+using System.Data.Entity;
 using System.Reflection;
 using System.Web.Http;
 
@@ -20,8 +22,16 @@ namespace PambolManager.API.Config
         private static IContainer RegisterServices(ContainerBuilder builder)
         {
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly()).PropertiesAutowired();
 
-            //registration goes here
+            // Register EF DbContext
+            builder.RegisterType<EntitiesContext>().As<DbContext>().InstancePerRequest();
+
+            // Register repositories by using Autofac's OpenGenerics feature
+            // More info: http://code.google.com/p/autofac/wiki/OpenGenerics
+            builder.RegisterGeneric(typeof(EntityRepository<>)).
+                As(typeof(IEntityRepository<>)).
+                InstancePerRequest();
 
             return builder.Build();
         }
