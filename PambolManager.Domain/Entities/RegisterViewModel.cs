@@ -1,14 +1,12 @@
-﻿using PambolManager.Domain.Entities.Core;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using PambolManager.Domain.Entities.Core;
 using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace PambolManager.Domain.Entities
 {
-    public class UserModel : IEntity
+    public class RegisterViewModel : IdentityUser
     {
-        [Key]
-        public Guid Key { get; set; }
-
         [Required]
         [Display(Name = "User name")]
         public string UserName { get; set; }

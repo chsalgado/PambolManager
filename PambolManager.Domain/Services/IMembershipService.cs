@@ -11,7 +11,7 @@ namespace PambolManager.Domain.Services
 {
     public interface IMembershipService : IDisposable
     {
-        Task<IdentityResult> RegisterUserAsync(UserModel userModel);
-        Task<IdentityUser> FindUserAsync(string userName, string password);
+        Task<IdentityResult> RegisterUserAsync(RegisterViewModel userModel);
+        Task<FieldManager> FindUserAsync(string userName, string password);
     }
 }

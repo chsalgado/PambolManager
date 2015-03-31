@@ -13,18 +13,16 @@ namespace PambolManager.Domain.Services
 {
     public class MembershipService : IMembershipService
     {
-        private readonly IEntityRepository<UserModel> _userRepository;
-        private UserManager<IdentityUser> _userManager;
+        private UserManager<FieldManager> _userManager;
 
         public MembershipService()
         {
-            _userRepository = new EntityRepository<UserModel>(new EntitiesContext());
-            _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_userRepository.GetDbContext()));
+            _userManager = new UserManager<FieldManager>(new UserStore<FieldManager>(new EntitiesContext()));
         }
 
-        public async Task<IdentityResult> RegisterUserAsync(UserModel userModel)
+        public async Task<IdentityResult> RegisterUserAsync(RegisterViewModel userModel)
         {
-            IdentityUser user = new IdentityUser
+            FieldManager user = new FieldManager
             {
                 UserName = userModel.UserName
             };
@@ -34,16 +32,15 @@ namespace PambolManager.Domain.Services
             return result;
         }
 
-        public async Task<IdentityUser> FindUserAsync(string userName, string password)
+        public async Task<FieldManager> FindUserAsync(string userName, string password)
         {
-            IdentityUser user = await _userManager.FindAsync(userName, password);
+            FieldManager user = await _userManager.FindAsync(userName, password);
 
             return user;
         }
 
         public void Dispose()
         {
-            _userRepository.Dispose();
             _userManager.Dispose();
         }
 
