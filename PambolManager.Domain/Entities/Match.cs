@@ -11,8 +11,8 @@ namespace PambolManager.Domain.Entities
 
         // N:2 relationship with Team
         // Special management for this relationship in EntitiesContext.OnModelCreation()
-        public int HomeTeamId { get; set; }
-        public int AwayTeamId { get; set; }
+        public Guid HomeTeamId { get; set; }
+        public Guid AwayTeamId { get; set; }
         public virtual Team HomeTeam { get; set; }
         public virtual Team AwayTeam { get; set; }
 

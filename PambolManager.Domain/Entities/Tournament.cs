@@ -19,8 +19,8 @@ namespace PambolManager.Domain.Entities
         [Required]
         public int MaxTeams { get; set; }
 
-        public DateTime BeginDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime? BeginDate { get; set; }
+        public DateTime? EndDate { get; set; }
 
         // N:1 relationship with FieldManager
         public string FieldManagerId { get; set; }

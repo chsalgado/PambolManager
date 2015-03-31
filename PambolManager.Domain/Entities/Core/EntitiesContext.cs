@@ -25,6 +25,8 @@ namespace PambolManager.Domain.Entities.Core
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Match>()
                         .HasRequired(m => m.HomeTeam)
                         .WithMany(t => t.HomeMatches)
