@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PambolManager.Domain.Services
 {
-    public interface ITournamentsService
+    public interface ITournamentService
     {
         PaginatedList<Tournament> GetTournaments(int pageIndex, int pageSize, string fielManagerId);
     }

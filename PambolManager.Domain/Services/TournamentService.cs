@@ -4,7 +4,7 @@ using PambolManager.Domain.Entities.Core;
 
 namespace PambolManager.Domain.Services
 {
-    public class TournamentService : ITournamentsService
+    public class TournamentService : ITournamentService
     {
         // Put here needed repositories for use cases/services to work
         private readonly IEntityRepository<Tournament> _tournamentRepository;
@@ -18,7 +18,10 @@ namespace PambolManager.Domain.Services
         // Tournaments
         public PaginatedList<Tournament> GetTournaments(int pageIndex, int pageSize, string fieldManagerId)
         {
-            var tournaments = _tournamentRepository.GetTournamentsbyFieldManagerKey(fieldManagerId).ToPaginatedList(pageIndex, pageSize);
+            var tournaments = _tournamentRepository
+                .GetTournamentsbyFieldManagerKey(fieldManagerId)
+                .OrderBy(t => t.TournamentName)
+                .ToPaginatedList(pageIndex, pageSize);
             return tournaments;
         }
     }
