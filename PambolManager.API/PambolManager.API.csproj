@@ -84,6 +84,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PambolManager.API.Model\PambolManager.API.Model.csproj">
+      <Project>{8c9541d8-5610-4582-8a8b-30ace695d69b}</Project>
+      <Name>PambolManager.API.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PambolManager.Domain\PambolManager.Domain.csproj">
       <Project>{d00ad175-d233-4589-803b-a66271b59b70}</Project>
       <Name>PambolManager.Domain</Name>
