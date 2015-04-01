@@ -12,6 +12,6 @@ namespace PambolManager.API.Model.Dtos
         bool HasNextPage { get; set; }
         bool HasPreviousPage { get; set; }
 
-        IEnumerable<TDto> Items { get; set; }
+        IEnumerable<TDto> Items { get; }
     }
 }

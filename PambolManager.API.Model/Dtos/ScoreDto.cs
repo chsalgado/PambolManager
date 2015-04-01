@@ -2,7 +2,7 @@
 
 namespace PambolManager.API.Model.Dtos
 {
-    class ScoreDto : IDto
+    public class ScoreDto : IDto
     {
         public Guid Id { get; set; }
 
