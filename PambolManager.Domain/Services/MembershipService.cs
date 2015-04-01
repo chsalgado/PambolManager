@@ -39,6 +39,13 @@ namespace PambolManager.Domain.Services
             return user;
         }
 
+        public async Task<FieldManager> FindUserByNameAsync(string userName)
+        {
+            FieldManager user = await _userManager.FindByNameAsync(userName);
+
+            return user;
+        }
+
         public void Dispose()
         {
             _userManager.Dispose();

@@ -50,7 +50,10 @@ namespace PambolManager.Domain.Migrations
               t => t.TournamentName,
               new Tournament { Id = Guid.NewGuid(), TournamentName = "Torneo 1", TotalRounds = 10, MaxTeams = 20, FieldManagerId = "1" },
               new Tournament { Id = Guid.NewGuid(), TournamentName = "Torneo 2", TotalRounds = 10, MaxTeams = 20, FieldManagerId = "2" },
-              new Tournament { Id = Guid.NewGuid(), TournamentName = "Torneo 3", TotalRounds = 10, MaxTeams = 20, FieldManagerId = "3" }
+              new Tournament { Id = Guid.NewGuid(), TournamentName = "Torneo 3", TotalRounds = 10, MaxTeams = 20, FieldManagerId = "3" },
+              new Tournament { Id = Guid.NewGuid(), TournamentName = "Torneo 4", TotalRounds = 5, MaxTeams = 10, FieldManagerId = "1" },
+              new Tournament { Id = Guid.NewGuid(), TournamentName = "Torneo 5", TotalRounds = 5, MaxTeams = 10, FieldManagerId = "2" },
+              new Tournament { Id = Guid.NewGuid(), TournamentName = "Torneo 6", TotalRounds = 5, MaxTeams = 10, FieldManagerId = "3" }
             );
         }
     }

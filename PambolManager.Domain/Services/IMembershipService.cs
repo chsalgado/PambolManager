@@ -13,5 +13,6 @@ namespace PambolManager.Domain.Services
     {
         Task<IdentityResult> RegisterUserAsync(RegisterViewModel userModel);
         Task<FieldManager> FindUserAsync(string userName, string password);
+        Task<FieldManager> FindUserByNameAsync(string userName);
     }
 }

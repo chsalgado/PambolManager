@@ -36,7 +36,7 @@ namespace PambolManager.API.Config
 
             // Register services
             builder.RegisterType<TournamentService>()
-                .As<ITournamentsService>()
+                .As<ITournamentService>()
                 .InstancePerRequest();
 
             return builder.Build();

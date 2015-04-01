@@ -76,6 +76,9 @@
     <Compile Include="Config\WebAPIConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\OdersController.cs" />
+    <Compile Include="Controllers\TournamentsController.cs" />
+    <Compile Include="Model\PaginatedListExtensions.cs" />
+    <Compile Include="Model\TournamentExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Routing\GuidRouteConstraint.cs" />
   </ItemGroup>
