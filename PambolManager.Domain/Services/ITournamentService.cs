@@ -11,5 +11,10 @@ namespace PambolManager.Domain.Services
     public interface ITournamentService
     {
         PaginatedList<Tournament> GetTournaments(int pageIndex, int pageSize, string fielManagerId);
+        OperationResult<Tournament> AddTournament(Tournament tournament);
+        Tournament GetTournament(Guid id);
+        Tournament UpdateTournament(Tournament id);
+        bool IsTournamentOwnedByUser(Tournament tournament, string FieldManagerId);
+        OperationResult RemoveTournament(Tournament tournament);
     }
 }

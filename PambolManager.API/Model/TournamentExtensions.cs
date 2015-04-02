@@ -24,6 +24,5 @@ namespace PambolManager.API.Model
                 EndDate = tournament.EndDate
             };
         }
-
     }
 }

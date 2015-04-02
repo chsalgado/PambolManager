@@ -76,6 +76,8 @@
     <Compile Include="Services\IMembershipService.cs" />
     <Compile Include="Services\ITournamentService.cs" />
     <Compile Include="Services\MembershipService.cs" />
+    <Compile Include="Services\OperationResult.cs" />
+    <Compile Include="Services\OperationResultOfTEntity.cs" />
     <Compile Include="Services\TournamentService.cs" />
   </ItemGroup>
   <ItemGroup>
