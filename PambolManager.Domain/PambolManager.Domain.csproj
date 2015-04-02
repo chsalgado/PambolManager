@@ -71,6 +71,10 @@
     <Compile Include="Migrations\201503310741531_Init.Designer.cs">
       <DependentUpon>201503310741531_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201504020020403_TournamentDescripcionAdd.cs" />
+    <Compile Include="Migrations\201504020020403_TournamentDescripcionAdd.Designer.cs">
+      <DependentUpon>201504020020403_TournamentDescripcionAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IMembershipService.cs" />
@@ -87,6 +91,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201503310741531_Init.resx">
       <DependentUpon>201503310741531_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504020020403_TournamentDescripcionAdd.resx">
+      <DependentUpon>201504020020403_TournamentDescripcionAdd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -13,7 +13,8 @@ namespace PambolManager.API.Model
                 TournamentName = requestModel.TournamentName,
                 BeginDate = requestModel.BeginDate,
                 EndDate = requestModel.EndDate,
-                MaxTeams = requestModel.MaxTeams
+                MaxTeams = requestModel.MaxTeams,
+                Description = requestModel.Description
             };
         }
 
@@ -23,6 +24,7 @@ namespace PambolManager.API.Model
             existingTournament.MaxTeams = requestModel.MaxTeams;
             existingTournament.BeginDate = requestModel.BeginDate;
             existingTournament.EndDate = requestModel.EndDate;
+            existingTournament.Description = requestModel.Description;
 
             return existingTournament;
         }
