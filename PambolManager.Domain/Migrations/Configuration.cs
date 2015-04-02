@@ -55,6 +55,28 @@ namespace PambolManager.Domain.Migrations
               new Tournament { Id = Guid.NewGuid(), TournamentName = "Torneo 5", TotalRounds = 5, MaxTeams = 10, FieldManagerId = "2", Description = "Torneo creado automaticamente" },
               new Tournament { Id = Guid.NewGuid(), TournamentName = "Torneo 6", TotalRounds = 5, MaxTeams = 10, FieldManagerId = "3", Description = "Torneo creado automaticamente" }
             );
+
+            context.Teams.AddOrUpdate(
+                t => t.TeamName,
+                new Team { Id = Guid.NewGuid(), TeamName = "Equipo1.1", LogoPath = "/DefaultPath.jpg", TournamentId = context.Tournaments.FirstOrDefault(t => t.TournamentName == "Torneo 1").Id},
+                new Team { Id = Guid.NewGuid(), TeamName = "Equipo1.2", LogoPath = "/DefaultPath.jpg", TournamentId = context.Tournaments.FirstOrDefault(t => t.TournamentName == "Torneo 1").Id},
+                new Team { Id = Guid.NewGuid(), TeamName = "Equipo1.3", LogoPath = "/DefaultPath.jpg", TournamentId = context.Tournaments.FirstOrDefault(t => t.TournamentName == "Torneo 1").Id},
+                new Team { Id = Guid.NewGuid(), TeamName = "Equipo2.1", LogoPath = "/DefaultPath.jpg", TournamentId = context.Tournaments.FirstOrDefault(t => t.TournamentName == "Torneo 2").Id},
+                new Team { Id = Guid.NewGuid(), TeamName = "Equipo2.2", LogoPath = "/DefaultPath.jpg", TournamentId = context.Tournaments.FirstOrDefault(t => t.TournamentName == "Torneo 2").Id},
+                new Team { Id = Guid.NewGuid(), TeamName = "Equipo2.3", LogoPath = "/DefaultPath.jpg", TournamentId = context.Tournaments.FirstOrDefault(t => t.TournamentName == "Torneo 2").Id},
+                new Team { Id = Guid.NewGuid(), TeamName = "Equipo3.1", LogoPath = "/DefaultPath.jpg", TournamentId = context.Tournaments.FirstOrDefault(t => t.TournamentName == "Torneo 3").Id},
+                new Team { Id = Guid.NewGuid(), TeamName = "Equipo3.2", LogoPath = "/DefaultPath.jpg", TournamentId = context.Tournaments.FirstOrDefault(t => t.TournamentName == "Torneo 3").Id},
+                new Team { Id = Guid.NewGuid(), TeamName = "Equipo3.3", LogoPath = "/DefaultPath.jpg", TournamentId = context.Tournaments.FirstOrDefault(t => t.TournamentName == "Torneo 3").Id},
+                new Team { Id = Guid.NewGuid(), TeamName = "Equipo4.1", LogoPath = "/DefaultPath.jpg", TournamentId = context.Tournaments.FirstOrDefault(t => t.TournamentName == "Torneo 4").Id },
+                new Team { Id = Guid.NewGuid(), TeamName = "Equipo4.2", LogoPath = "/DefaultPath.jpg", TournamentId = context.Tournaments.FirstOrDefault(t => t.TournamentName == "Torneo 4").Id },
+                new Team { Id = Guid.NewGuid(), TeamName = "Equipo4.3", LogoPath = "/DefaultPath.jpg", TournamentId = context.Tournaments.FirstOrDefault(t => t.TournamentName == "Torneo 4").Id },
+                new Team { Id = Guid.NewGuid(), TeamName = "Equipo5.1", LogoPath = "/DefaultPath.jpg", TournamentId = context.Tournaments.FirstOrDefault(t => t.TournamentName == "Torneo 5").Id },
+                new Team { Id = Guid.NewGuid(), TeamName = "Equipo5.2", LogoPath = "/DefaultPath.jpg", TournamentId = context.Tournaments.FirstOrDefault(t => t.TournamentName == "Torneo 5").Id },
+                new Team { Id = Guid.NewGuid(), TeamName = "Equipo5.3", LogoPath = "/DefaultPath.jpg", TournamentId = context.Tournaments.FirstOrDefault(t => t.TournamentName == "Torneo 5").Id },
+                new Team { Id = Guid.NewGuid(), TeamName = "Equipo6.1", LogoPath = "/DefaultPath.jpg", TournamentId = context.Tournaments.FirstOrDefault(t => t.TournamentName == "Torneo 6").Id },
+                new Team { Id = Guid.NewGuid(), TeamName = "Equipo6.2", LogoPath = "/DefaultPath.jpg", TournamentId = context.Tournaments.FirstOrDefault(t => t.TournamentName == "Torneo 6").Id },
+                new Team { Id = Guid.NewGuid(), TeamName = "Equipo6.3", LogoPath = "/DefaultPath.jpg", TournamentId = context.Tournaments.FirstOrDefault(t => t.TournamentName == "Torneo 6").Id }
+            );
         }
     }
 }

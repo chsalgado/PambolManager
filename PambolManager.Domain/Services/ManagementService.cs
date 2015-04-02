@@ -9,12 +9,14 @@ namespace PambolManager.Domain.Services
     {
         // Put here needed repositories for use cases/services to work
         private readonly IEntityRepository<Tournament> _tournamentRepository;
+        private readonly IEntityRepository<Team> _teamRepository;
         private readonly IMembershipService _membershipService;
 
         // Constructor that takes all of the repositories as parameters
-        public ManagementService(IEntityRepository<Tournament> tournamentRepository)
+        public ManagementService(IEntityRepository<Tournament> tournamentRepository, IEntityRepository<Team> teamRepository)
         {
             _tournamentRepository = tournamentRepository;
+            _teamRepository = teamRepository;
             _membershipService = new MembershipService();
         }
 
@@ -73,6 +75,62 @@ namespace PambolManager.Domain.Services
         {
             _tournamentRepository.DeleteGraph(tournament);
             _tournamentRepository.Save();
+
+            return new OperationResult(true);
+        }
+
+        // Teams
+        public PaginatedList<Team> GetTeams(int pageIndex, int pageSize, Guid tournamentId)
+        {
+            var teams = _teamRepository
+                .GetTeamsByTournamentId(tournamentId)
+                .OrderBy(t => t.TeamName)
+                .ToPaginatedList(pageIndex, pageSize);
+
+            return teams;
+        }
+
+        public OperationResult<Team> AddTeam(Team team)
+        {
+            var tournament = GetTournament(team.TournamentId);
+
+            if (tournament == null)
+            {
+                return new OperationResult<Team>(false);
+            }
+
+            team.Id = Guid.NewGuid();
+
+            // Just a placeHolder
+            team.LogoPath = "/DefaultPath.jpg";
+
+            _teamRepository.Add(team);
+            _teamRepository.Save();
+
+            return new OperationResult<Team>(true)
+            {
+                Entity = team
+            };
+        }
+
+        public Team GetTeam(Guid id)
+        {
+            var team = _teamRepository.GetAll().FirstOrDefault(t => t.Id == id);
+
+            return team;
+        }
+        public Team UpdateTeam(Team team)
+        {
+            _teamRepository.Edit(team);
+            _teamRepository.Save();
+
+            return team;
+        }
+
+        public OperationResult RemoveTeam(Team team)
+        {
+            _teamRepository.DeleteGraph(team);
+            _teamRepository.Save();
 
             return new OperationResult(true);
         }

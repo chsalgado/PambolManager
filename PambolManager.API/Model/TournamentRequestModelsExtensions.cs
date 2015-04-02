@@ -10,6 +10,7 @@ namespace PambolManager.API.Model
 
             return new Tournament
             {
+                FieldManagerId = requestModel.FieldManagerId,
                 TournamentName = requestModel.TournamentName,
                 BeginDate = requestModel.BeginDate,
                 EndDate = requestModel.EndDate,

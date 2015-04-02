@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Http;
-using PambolManager.Domain.Services;
+﻿using PambolManager.API.Model;
 using PambolManager.API.Model.Dtos;
 using PambolManager.API.Model.RequestCommands;
-using PambolManager.API.Model;
-using PambolManager.Domain.Entities;
-using System.Net.Http;
-using System.Net;
 using PambolManager.API.Model.RequestModels;
+using PambolManager.Domain.Entities;
+using PambolManager.Domain.Services;
+using System;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Web.Http;
 
 namespace PambolManager.API.Controllers
 {
@@ -21,7 +19,7 @@ namespace PambolManager.API.Controllers
         private readonly IManagementService _managementService;
         private readonly IMembershipService _membershipService;
 
-        // Dependency injector injects ITournamentService in here
+        // Dependency injector injects IManagementService in here
         public TournamentsController(IManagementService tournamentService)
         {
             _managementService = tournamentService;
