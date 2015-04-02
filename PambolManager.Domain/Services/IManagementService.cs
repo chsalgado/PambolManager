@@ -20,9 +20,16 @@ namespace PambolManager.Domain.Services
 
         //Teams
         PaginatedList<Team> GetTeams(int pageIndex, int pageSize, Guid tournamentId);
-        OperationResult<Team> AddTeam(Team tournament);
+        OperationResult<Team> AddTeam(Team team);
         Team GetTeam(Guid id);
         Team UpdateTeam(Team team);
         OperationResult RemoveTeam(Team team);
+
+        //Players
+        PaginatedList<Player> GetPlayers(int pageIndex, int pageSize, Guid teamId);
+        OperationResult<Player> AddPlayer(Player player);
+        Player GetPlayer(Guid id);
+        Player UpdatePlayer(Player player);
+        OperationResult RemovePlayer(Player player);
     }
 }

@@ -14,111 +14,111 @@ using System.Web.Http;
 namespace PambolManager.API.Controllers
 {
     [Authorize]
-    public class TeamsController : ApiController
+    public class PlayersController : ApiController
     {
         private readonly IManagementService _managementService;
         private readonly IMembershipService _membershipService;
 
         // Dependency injector injects IManagementService in here
-        public TeamsController(IManagementService managementService)
+        public PlayersController(IManagementService managementService)
         {
             _managementService = managementService;
             _membershipService = new MembershipService();
         }
 
-        // GET api/teams?tournamentId=00000000-0000-0000-0000-000000000000&page=1&take=20
-        public async Task<PaginatedDto<TeamDto>> GetTeamsAsync(Guid tournamentId, RequestCommand cmd)
+        // GET api/player?teamId=00000000-0000-0000-0000-000000000000&page=1&take=20
+        public async Task<PaginatedDto<PlayerDto>> GetPlayersAsync(Guid teamId, RequestCommand cmd)
         {
-            var tournament = _managementService.GetTournament(tournamentId);
+            var team = _managementService.GetTeam(teamId);
 
-            if (tournament == null)
+            if (team == null)
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
 
             FieldManager currentManager = await _membershipService.FindUserByNameAsync(User.Identity.Name);
 
-            if (!_managementService.IsTournamentOwnedByUser(tournament, currentManager.Id))
+            if (!_managementService.IsTournamentOwnedByUser(team.Tournament, currentManager.Id))
             {
                 throw new HttpResponseException(HttpStatusCode.Unauthorized);
             }
 
-            var teams = _managementService.GetTeams(cmd.Page, cmd.Take, tournamentId);
+            var players = _managementService.GetPlayers(cmd.Page, cmd.Take, teamId);
 
-            return teams.ToPaginatedDto(teams.Select(t => t.ToTeamDto()));
+            return players.ToPaginatedDto(players.Select(p => p.ToPlayerDto()));
         }
 
-        // POST api/Teams
-        public async Task<HttpResponseMessage> PostTeamAsync(TeamRequestModel requestModel)
+        // POST api/players
+        public async Task<HttpResponseMessage> PostPlayerAsync(PlayerRequestModel requestModel)
         {
-            var tournament = _managementService.GetTournament(requestModel.TournamentId);
+            var team = _managementService.GetTeam(requestModel.TeamId);
 
-            if (tournament == null)
+            if (team == null)
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
-            
+
             FieldManager currentManager = await _membershipService.FindUserByNameAsync(User.Identity.Name);
 
-            if (!_managementService.IsTournamentOwnedByUser(tournament, currentManager.Id))
+            if (!_managementService.IsTournamentOwnedByUser(team.Tournament, currentManager.Id))
             {
                 throw new HttpResponseException(HttpStatusCode.Unauthorized);
             }
 
-            var createdTeamResult = _managementService.AddTeam(requestModel.ToTeam());
+            var createdPlayerResult = _managementService.AddPlayer(requestModel.ToPlayer());
 
-            if (!createdTeamResult.IsSuccess)
+            if (!createdPlayerResult.IsSuccess)
             {
                 return new HttpResponseMessage(HttpStatusCode.Conflict);
             }
 
-            var response = Request.CreateResponse(HttpStatusCode.Created, createdTeamResult.Entity.ToTeamDto());
+            var response = Request.CreateResponse(HttpStatusCode.Created, createdPlayerResult.Entity.ToPlayerDto());
 
             return response;
         }
 
-        // PUT api/Teams?id=00000000-0000-0000-0000-000000000000
-        public async Task<TeamDto> PutTeamAsync(Guid id, TeamUpdateRequestModel requestModel)
+        // PUT api/players?id=00000000-0000-0000-0000-000000000000
+        public async Task<PlayerDto> PutPlayerAsync(Guid id, PlayerUpdateRequestModel requestModel)
         {
-            var team = _managementService.GetTeam(id);
+            var player = _managementService.GetPlayer(id);
 
-            if (team == null)
+            if (player == null)
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
 
             FieldManager currentManager = await _membershipService.FindUserByNameAsync(User.Identity.Name);
 
-            if (!_managementService.IsTournamentOwnedByUser(team.Tournament, currentManager.Id))
+            if (!_managementService.IsTournamentOwnedByUser(player.Team.Tournament, currentManager.Id))
             {
                 throw new HttpResponseException(HttpStatusCode.Unauthorized);
             }
 
-            var updatedTeam = _managementService.UpdateTeam(requestModel.ToTeam(team));
+            var updatedPlayer = _managementService.UpdatePlayer(requestModel.ToPlayer(player));
 
-            return updatedTeam.ToTeamDto();
+            return updatedPlayer.ToPlayerDto();
         }
 
-        // DELETE api/Teams?id=00000000-0000-0000-0000-000000000000
-        public async Task<HttpResponseMessage> DeleteTournamentAsync(Guid id)
+        // DELETE api/players?id=00000000-0000-0000-0000-000000000000
+        public async Task<HttpResponseMessage> DeletePlayerAsync(Guid id)
         {
-            var team = _managementService.GetTeam(id);
+            var player = _managementService.GetPlayer(id);
 
-            if (team == null)
+            if (player == null)
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
 
             FieldManager currentManager = await _membershipService.FindUserByNameAsync(User.Identity.Name);
 
-            if (!_managementService.IsTournamentOwnedByUser(team.Tournament, currentManager.Id))
+            if (!_managementService.IsTournamentOwnedByUser(player.Team.Tournament, currentManager.Id))
             {
                 throw new HttpResponseException(HttpStatusCode.Unauthorized);
             }
 
-            var teamRemoveResult = _managementService.RemoveTeam(team);
+            var playerRemoveResult = _managementService.RemovePlayer(player);
 
-            if (!teamRemoveResult.IsSuccess)
+            if (!playerRemoveResult.IsSuccess)
             {
                 return new HttpResponseMessage(HttpStatusCode.Conflict);
             }

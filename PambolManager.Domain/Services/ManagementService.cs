@@ -10,13 +10,18 @@ namespace PambolManager.Domain.Services
         // Put here needed repositories for use cases/services to work
         private readonly IEntityRepository<Tournament> _tournamentRepository;
         private readonly IEntityRepository<Team> _teamRepository;
+        private readonly IEntityRepository<Player> _playerRepository;
         private readonly IMembershipService _membershipService;
 
         // Constructor that takes all of the repositories as parameters
-        public ManagementService(IEntityRepository<Tournament> tournamentRepository, IEntityRepository<Team> teamRepository)
+        public ManagementService(
+            IEntityRepository<Tournament> tournamentRepository, 
+            IEntityRepository<Team> teamRepository,
+            IEntityRepository<Player> playerRepository)
         {
             _tournamentRepository = tournamentRepository;
             _teamRepository = teamRepository;
+            _playerRepository = playerRepository;
             _membershipService = new MembershipService();
         }
 
@@ -119,6 +124,7 @@ namespace PambolManager.Domain.Services
 
             return team;
         }
+
         public Team UpdateTeam(Team team)
         {
             _teamRepository.Edit(team);
@@ -131,6 +137,60 @@ namespace PambolManager.Domain.Services
         {
             _teamRepository.DeleteGraph(team);
             _teamRepository.Save();
+
+            return new OperationResult(true);
+        }
+
+        // Players
+        public PaginatedList<Player> GetPlayers(int pageIndex, int pageSize, Guid teamId)
+        {
+            var players = _playerRepository
+                .GetPlayersByTeamId(teamId)
+                .OrderBy(p => p.Name)
+                .ToPaginatedList(pageIndex, pageSize);
+
+            return players;
+        }
+
+        public OperationResult<Player> AddPlayer(Player player)
+        {
+            var team = GetTeam(player.TeamId);
+
+            if (team == null)
+            {
+                return new OperationResult<Player>(false);
+            }
+
+            player.Id = Guid.NewGuid();
+
+            _playerRepository.Add(player);
+            _playerRepository.Save();
+
+            return new OperationResult<Player>(true)
+            {
+                Entity = player
+            };
+        }
+
+        public Player GetPlayer(Guid id)
+        {
+            var player = _playerRepository.GetAll().FirstOrDefault(p => p.Id == id);
+
+            return player;
+        }
+
+        public Player UpdatePlayer(Player player)
+        {
+            _playerRepository.Edit(player);
+            _playerRepository.Save();
+
+            return player;
+        }
+
+        public OperationResult RemovePlayer(Player player)
+        {
+            _playerRepository.DeleteGraph(player);
+            _playerRepository.Save();
 
             return new OperationResult(true);
         }

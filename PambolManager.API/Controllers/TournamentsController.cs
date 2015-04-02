@@ -20,9 +20,9 @@ namespace PambolManager.API.Controllers
         private readonly IMembershipService _membershipService;
 
         // Dependency injector injects IManagementService in here
-        public TournamentsController(IManagementService tournamentService)
+        public TournamentsController(IManagementService managementService)
         {
-            _managementService = tournamentService;
+            _managementService = managementService;
             _membershipService = new MembershipService();
         }
         

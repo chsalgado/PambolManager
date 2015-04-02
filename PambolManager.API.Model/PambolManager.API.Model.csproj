@@ -52,6 +52,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestCommands\IRequestCommand.cs" />
     <Compile Include="RequestCommands\RequestCommand.cs" />
+    <Compile Include="RequestModels\PlayerBaseRequestModel.cs" />
     <Compile Include="RequestModels\TeamBaseRequestModel.cs" />
     <Compile Include="RequestModels\TournamentBaseRequestModel.cs" />
     <Compile Include="Validation\MaximumAttribute.cs" />
