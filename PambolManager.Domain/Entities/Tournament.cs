@@ -22,6 +22,8 @@ namespace PambolManager.Domain.Entities
         public DateTime? BeginDate { get; set; }
         public DateTime? EndDate { get; set; }
 
+        public string Description { get; set; }
+
         // N:1 relationship with FieldManager
         public string FieldManagerId { get; set; }
         public virtual FieldManager FieldManager { get; set; }
