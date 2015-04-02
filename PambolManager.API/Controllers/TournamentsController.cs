@@ -18,13 +18,13 @@ namespace PambolManager.API.Controllers
     [Authorize]
     public class TournamentsController : ApiController
     {
-        private readonly ITournamentService _tournamentService;
+        private readonly IManagementService _managementService;
         private readonly IMembershipService _membershipService;
 
         // Dependency injector injects ITournamentService in here
-        public TournamentsController(ITournamentService tournamentService)
+        public TournamentsController(IManagementService tournamentService)
         {
-            _tournamentService = tournamentService;
+            _managementService = tournamentService;
             _membershipService = new MembershipService();
         }
         
@@ -33,7 +33,7 @@ namespace PambolManager.API.Controllers
         {
             FieldManager currentManager = await _membershipService.FindUserByNameAsync(User.Identity.Name);
             
-            var tournaments = _tournamentService.GetTournaments(cmd.Page, cmd.Take, currentManager.Id);
+            var tournaments = _managementService.GetTournaments(cmd.Page, cmd.Take, currentManager.Id);
 
             return tournaments.ToPaginatedDto(tournaments.Select(t => t.ToTournamentDto()));
         }
@@ -44,7 +44,7 @@ namespace PambolManager.API.Controllers
             FieldManager currentManager = await _membershipService.FindUserByNameAsync(User.Identity.Name);
             requestModel.FieldManagerId = currentManager.Id;
 
-            var createdTournamentResult = _tournamentService.AddTournament(requestModel.ToTournament());
+            var createdTournamentResult = _managementService.AddTournament(requestModel.ToTournament());
 
             if(!createdTournamentResult.IsSuccess)
             {
@@ -59,7 +59,7 @@ namespace PambolManager.API.Controllers
         // PUT api/Tournaments?id=00000000-0000-0000-0000-000000000000
         public async Task<TournamentDto> PutTournamentAsync(Guid id, TournamentUpdateRequestModel requestModel)
         {
-            var tournament = _tournamentService.GetTournament(id);
+            var tournament = _managementService.GetTournament(id);
 
             if(tournament == null)
             {
@@ -68,12 +68,12 @@ namespace PambolManager.API.Controllers
 
             FieldManager currentManager = await _membershipService.FindUserByNameAsync(User.Identity.Name);
             
-            if(!_tournamentService.IsTournamentOwnedByUser(tournament, currentManager.Id))
+            if(!_managementService.IsTournamentOwnedByUser(tournament, currentManager.Id))
             {
                 throw new HttpResponseException(HttpStatusCode.Unauthorized);
             }
 
-            var updatedTournament = _tournamentService.UpdateTournament(requestModel.ToTournament(tournament));
+            var updatedTournament = _managementService.UpdateTournament(requestModel.ToTournament(tournament));
 
             return updatedTournament.ToTournamentDto();
         }
@@ -81,7 +81,7 @@ namespace PambolManager.API.Controllers
         // DELETE api/Tournaments?id=00000000-0000-0000-0000-000000000000
         public async Task<HttpResponseMessage> DeleteTournamentAsync(Guid id)
         {
-            var tournament = _tournamentService.GetTournament(id);
+            var tournament = _managementService.GetTournament(id);
 
             if(tournament == null)
             {
@@ -90,12 +90,12 @@ namespace PambolManager.API.Controllers
 
             FieldManager currentManager = await _membershipService.FindUserByNameAsync(User.Identity.Name);
 
-            if (!_tournamentService.IsTournamentOwnedByUser(tournament, currentManager.Id))
+            if (!_managementService.IsTournamentOwnedByUser(tournament, currentManager.Id))
             {
                 throw new HttpResponseException(HttpStatusCode.Unauthorized);
             }
 
-            var tournamentRemoveResult = _tournamentService.RemoveTournament(tournament);
+            var tournamentRemoveResult = _managementService.RemoveTournament(tournament);
 
             if (!tournamentRemoveResult.IsSuccess)
             {

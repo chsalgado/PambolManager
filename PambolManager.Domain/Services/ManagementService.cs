@@ -5,14 +5,14 @@ using System;
 
 namespace PambolManager.Domain.Services
 {
-    public class TournamentService : ITournamentService
+    public class ManagementService : IManagementService
     {
         // Put here needed repositories for use cases/services to work
         private readonly IEntityRepository<Tournament> _tournamentRepository;
         private readonly IMembershipService _membershipService;
 
         // Constructor that takes all of the repositories as parameters
-        public TournamentService(IEntityRepository<Tournament> tournamentRepository)
+        public ManagementService(IEntityRepository<Tournament> tournamentRepository)
         {
             _tournamentRepository = tournamentRepository;
             _membershipService = new MembershipService();
