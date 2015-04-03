@@ -41,5 +41,8 @@ namespace PambolManager.Domain.Services
         IEnumerable<Match> GetMatches(Guid roundId);
         Match GetMatch(Guid matchId);
         Match UpdateMatch(Match match);
+
+        // StandingEntries
+        IEnumerable<StandingEntry> GetStandings(Guid tournamentId);
     }
 }

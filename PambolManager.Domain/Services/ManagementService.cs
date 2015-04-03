@@ -330,5 +330,84 @@ namespace PambolManager.Domain.Services
 
             return match;
         }
+
+        // StandingEntries
+        public IEnumerable<StandingEntry> GetStandings(Guid tournamentId)
+        {
+            var teams = GetTournament(tournamentId).Teams;
+            List<StandingEntry> standingEntries = new List<StandingEntry>();
+
+            foreach(var team in teams)
+            {
+                var standingEntry = GetStandingEntry(team);
+                standingEntries.Add(standingEntry);
+            }
+
+            List<StandingEntry> standings = standingEntries.OrderByDescending(s => s.Points)
+                                            .ThenByDescending(s => s.GoalsDifference)
+                                            .ThenByDescending(s => s.ScoredGoals)
+                                            .ToList();
+
+            return standings;
+        }
+
+        // Private helpers
+        private StandingEntry GetStandingEntry(Team team)
+        {
+            string teamName = team.TeamName;
+
+            int playedMatches = 0;
+            int wonMatches = 0;
+            int drawedMatches = 0;
+            int lostMatches = 0;
+            int scoredGoals = 0;
+            int receivedGoals = 0;
+
+            foreach (var match in team.HomeMatches)
+            {
+                if (match.IsScoreSet)
+                {
+                    playedMatches++;
+
+                    if (match.HomeGoals > match.AwayGoals) wonMatches++;
+                    else if (match.HomeGoals < match.AwayGoals) lostMatches++;
+                    else drawedMatches++;
+
+                    scoredGoals += match.HomeGoals;
+                    receivedGoals += match.AwayGoals;
+                }
+            }
+
+            foreach (var match in team.AwayMatches)
+            {
+                if (match.IsScoreSet)
+                {
+                    playedMatches++;
+
+                    if (match.AwayGoals > match.HomeGoals) wonMatches++;
+                    else if (match.AwayGoals < match.HomeGoals) lostMatches++;
+                    else drawedMatches++;
+
+                    scoredGoals += match.AwayGoals;
+                    receivedGoals += match.HomeGoals;
+                }
+            }
+
+            int goalsDifference = scoredGoals - receivedGoals;
+            int points = (3 * wonMatches) + drawedMatches;
+
+            return new StandingEntry
+            {
+                TeamName = teamName,
+                PlayedMatches = playedMatches,
+                WonMatches = wonMatches,
+                DrawedMatches = drawedMatches,
+                LostMatches = lostMatches,
+                ScoredGoals = scoredGoals,
+                ReceivedGoals = receivedGoals,
+                GoalsDifference = goalsDifference,
+                Points = points
+            };
+        }
     }
 }

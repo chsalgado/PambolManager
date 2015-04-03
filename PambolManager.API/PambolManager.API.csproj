@@ -79,6 +79,7 @@
     <Compile Include="Controllers\OdersController.cs" />
     <Compile Include="Controllers\PlayersController.cs" />
     <Compile Include="Controllers\RoundsController.cs" />
+    <Compile Include="Controllers\StandingsController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Controllers\TournamentsController.cs" />
     <Compile Include="Model\MatchExtensions.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Model\PlayerExtensions.cs" />
     <Compile Include="Model\PlayerRequestModelExtensions.cs" />
     <Compile Include="Model\RoundExtensions.cs" />
+    <Compile Include="Model\StandingEntryExtensions.cs" />
     <Compile Include="Model\TeamExtensions.cs" />
     <Compile Include="Model\TeamRequestModelExtensions.cs" />
     <Compile Include="Model\TournamentRequestModelsExtensions.cs" />

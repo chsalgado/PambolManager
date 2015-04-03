@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\StandingEntry.cs" />
     <Compile Include="Entities\Extensions\MatchRepositoryExtensions.cs" />
     <Compile Include="Entities\Extensions\PlayerRepositoryExtension.cs" />
     <Compile Include="Entities\Extensions\RoundRepositoryExtensions.cs" />
