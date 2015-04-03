@@ -11,17 +11,24 @@ namespace PambolManager.Domain.Services
         private readonly IEntityRepository<Tournament> _tournamentRepository;
         private readonly IEntityRepository<Team> _teamRepository;
         private readonly IEntityRepository<Player> _playerRepository;
+        private readonly IEntityRepository<Round> _roundRepository;
+        private readonly IEntityRepository<Match> _matchRepository;
+
         private readonly IMembershipService _membershipService;
 
         // Constructor that takes all of the repositories as parameters
         public ManagementService(
             IEntityRepository<Tournament> tournamentRepository, 
             IEntityRepository<Team> teamRepository,
-            IEntityRepository<Player> playerRepository)
+            IEntityRepository<Player> playerRepository,
+            IEntityRepository<Round> roundRepository,
+            IEntityRepository<Match> matchRepository)
         {
             _tournamentRepository = tournamentRepository;
             _teamRepository = teamRepository;
             _playerRepository = playerRepository;
+            _roundRepository = roundRepository;
+            _matchRepository = matchRepository;
             _membershipService = new MembershipService();
         }
 
@@ -99,7 +106,7 @@ namespace PambolManager.Domain.Services
         {
             var tournament = GetTournament(team.TournamentId);
 
-            if (tournament == null)
+            if (tournament == null || tournament.Teams.Count == tournament.MaxTeams)
             {
                 return new OperationResult<Team>(false);
             }
@@ -193,6 +200,67 @@ namespace PambolManager.Domain.Services
             _playerRepository.Save();
 
             return new OperationResult(true);
+        }
+
+        // Rounds
+        public void CreateTournamentSchedule()
+        {
+            Guid tournamentId = Guid.Parse("f0fe6b3d-51fb-4e48-8b05-46a967d6ac36");
+            var teams = _teamRepository
+                .GetTeamsByTournamentId(tournamentId)
+                .OrderBy(t => t.TeamName).ToList();
+            
+            if (teams.Count() % 2 != 0)
+            {
+                teams.Add(new Team { TeamName = "Bye" });
+            }
+
+            int totalTeams = teams.Count();
+
+            int totalRounds = (totalTeams - 1);
+            int halfSize = totalTeams / 2;
+
+            var fixedTeam = teams.ElementAt(0);
+            var movableTeams = teams.Skip(1).ToArray();
+
+            int movableTeamsSize = movableTeams.Count();
+
+            // Create each of the rounds
+            for (int round = 1; round <= totalRounds; round++)
+            {
+                var currentRound = new Round { Id = Guid.NewGuid(), RoundNumber = round, TournamentId = tournamentId };
+
+                _roundRepository.Add(currentRound);
+
+                int teamIdx = totalRounds - round;
+
+                // Create match for fixed team
+                var match = new Match { Id = Guid.NewGuid(), HomeTeamId = fixedTeam.Id, AwayTeamId = movableTeams[teamIdx].Id, RoundId = currentRound.Id };
+                //var score = new 
+                _matchRepository.Add(match);
+
+                // Create remaining matches for current round
+                for (int idx = 1; idx < halfSize; idx++)
+                {
+                    int firstTeam = (idx - round) % movableTeamsSize;
+                    int secondTeam = (movableTeamsSize - round -idx) % movableTeamsSize;
+
+                    if (firstTeam < 0)
+                    {
+                        firstTeam += movableTeamsSize;
+                    }
+
+                    if (secondTeam < 0)
+                    {
+                        secondTeam += movableTeamsSize;
+                    }
+
+                    match = new Match { Id = Guid.NewGuid(), HomeTeamId = movableTeams[firstTeam].Id, AwayTeamId = movableTeams[secondTeam].Id, RoundId = currentRound.Id };
+                    _matchRepository.Add(match);
+                }
+            }
+            _roundRepository.Save();
+            _matchRepository.Save();
         }
     }
 }

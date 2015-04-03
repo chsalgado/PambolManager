@@ -8,6 +8,10 @@ namespace PambolManager.API.Model.Dtos
         
         public TeamDto HomeTeam { get; set; }
         public TeamDto AwayTeam { get; set; }
-        public ScoreDto Score { get; set; }
+
+        // Score
+        public int HomeGoals { get; set; }
+        public int AwayGoals { get; set; }
+        public bool IsScoreSet { get; set; }
     }
 }

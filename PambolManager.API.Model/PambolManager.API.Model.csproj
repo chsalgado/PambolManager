@@ -46,7 +46,6 @@
     <Compile Include="Dtos\PaginatedDto.cs" />
     <Compile Include="Dtos\PlayerDto.cs" />
     <Compile Include="Dtos\RoundDto.cs" />
-    <Compile Include="Dtos\ScoreDto.cs" />
     <Compile Include="Dtos\TeamDto.cs" />
     <Compile Include="Dtos\TournamentDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

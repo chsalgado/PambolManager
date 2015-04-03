@@ -31,5 +31,7 @@ namespace PambolManager.Domain.Services
         Player GetPlayer(Guid id);
         Player UpdatePlayer(Player player);
         OperationResult RemovePlayer(Player player);
+
+        void CreateTournamentSchedule();
     }
 }

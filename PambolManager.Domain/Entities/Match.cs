@@ -16,8 +16,13 @@ namespace PambolManager.Domain.Entities
         public virtual Team HomeTeam { get; set; }
         public virtual Team AwayTeam { get; set; }
 
-        // 1:1 relationship with Score
-        public Guid ScoreId { get; set; }
-        public virtual Score Score { get; set; }
+        // Score
+        public int HomeGoals { get; set; }
+        public int AwayGoals { get; set; }
+        public bool IsScoreSet { get; set; }
+
+        // N:1 relationship with Round
+        public Guid RoundId { get; set; }
+        public virtual Round Round { get; set; }
     }
 }

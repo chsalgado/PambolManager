@@ -15,7 +15,6 @@ namespace PambolManager.Domain.Entities.Core
         public DbSet<Player> Players { get; set; }
         public DbSet<Round> Rounds { get; set; }
         public DbSet<Match> Matches { get; set; }
-        public DbSet<Score> Scores { get; set; }
         
         public EntitiesContext()
             : base("PambolManagerContext", throwIfV1Schema: false)

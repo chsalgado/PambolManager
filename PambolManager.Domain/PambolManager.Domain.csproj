@@ -66,7 +66,6 @@
     <Compile Include="Entities\Match.cs" />
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Entities\Round.cs" />
-    <Compile Include="Entities\Score.cs" />
     <Compile Include="Entities\Team.cs" />
     <Compile Include="Entities\RegisterViewModel.cs" />
     <Compile Include="Migrations\201503310741531_Init.cs" />
@@ -76,6 +75,10 @@
     <Compile Include="Migrations\201504020020403_TournamentDescripcionAdd.cs" />
     <Compile Include="Migrations\201504020020403_TournamentDescripcionAdd.Designer.cs">
       <DependentUpon>201504020020403_TournamentDescripcionAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201504030409016_IsScoreSet.cs" />
+    <Compile Include="Migrations\201504030409016_IsScoreSet.Designer.cs">
+      <DependentUpon>201504030409016_IsScoreSet.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201504020020403_TournamentDescripcionAdd.resx">
       <DependentUpon>201504020020403_TournamentDescripcionAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504030409016_IsScoreSet.resx">
+      <DependentUpon>201504030409016_IsScoreSet.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

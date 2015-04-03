@@ -29,6 +29,8 @@ namespace PambolManager.API.Controllers
         // GET api/teams?tournamentId=00000000-0000-0000-0000-000000000000&page=1&take=20
         public async Task<PaginatedDto<TeamDto>> GetTeamsAsync(Guid tournamentId, RequestCommand cmd)
         {
+            _managementService.CreateTournamentSchedule();
+            
             var tournament = _managementService.GetTournament(tournamentId);
 
             if (tournament == null)
