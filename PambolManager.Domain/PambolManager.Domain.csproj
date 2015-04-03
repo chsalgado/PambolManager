@@ -52,7 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Extensions\MatchRepositoryExtensions.cs" />
     <Compile Include="Entities\Extensions\PlayerRepositoryExtension.cs" />
+    <Compile Include="Entities\Extensions\RoundRepositoryExtensions.cs" />
     <Compile Include="Entities\Extensions\TeamRepositoryExtensions.cs" />
     <Compile Include="Entities\Extensions\TournamentRepositoryExtensions.cs" />
     <Compile Include="Entities\FieldManager.cs" />

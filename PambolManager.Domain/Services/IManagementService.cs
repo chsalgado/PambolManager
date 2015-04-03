@@ -32,6 +32,14 @@ namespace PambolManager.Domain.Services
         Player UpdatePlayer(Player player);
         OperationResult RemovePlayer(Player player);
 
-        void CreateTournamentSchedule();
+        // Rounds
+        OperationResult<IEnumerable<Round>> CreateTournamentSchedule(Guid tournamentId);
+        OperationResult RemoveRounds(Guid tournamentId);
+        Round GetRoundByTournamentIdAndNumber(Guid tournamentId, int roundNumber);
+
+        // Matches
+        IEnumerable<Match> GetMatches(Guid roundId);
+        Match GetMatch(Guid matchId);
+        Match UpdateMatch(Match match);
     }
 }

@@ -2,6 +2,7 @@
 using PambolManager.Domain.Entities;
 using PambolManager.Domain.Entities.Core;
 using System;
+using System.Collections.Generic;
 
 namespace PambolManager.Domain.Services
 {
@@ -203,9 +204,9 @@ namespace PambolManager.Domain.Services
         }
 
         // Rounds
-        public void CreateTournamentSchedule()
+        public OperationResult<IEnumerable<Round>> CreateTournamentSchedule(Guid tournamentId)
         {
-            Guid tournamentId = Guid.Parse("f0fe6b3d-51fb-4e48-8b05-46a967d6ac36");
+            var tournament = GetTournament(tournamentId);
             var teams = _teamRepository
                 .GetTeamsByTournamentId(tournamentId)
                 .OrderBy(t => t.TeamName).ToList();
@@ -218,12 +219,20 @@ namespace PambolManager.Domain.Services
             int totalTeams = teams.Count();
 
             int totalRounds = (totalTeams - 1);
+            
             int halfSize = totalTeams / 2;
 
             var fixedTeam = teams.ElementAt(0);
             var movableTeams = teams.Skip(1).ToArray();
 
             int movableTeamsSize = movableTeams.Count();
+
+            var existingRounds = _roundRepository.GetRoundsByTournamentId(tournamentId);
+
+            foreach (var round in existingRounds)
+            {
+                _roundRepository.DeleteGraph(round);
+            }
 
             // Create each of the rounds
             for (int round = 1; round <= totalRounds; round++)
@@ -261,6 +270,65 @@ namespace PambolManager.Domain.Services
             }
             _roundRepository.Save();
             _matchRepository.Save();
+
+            tournament.TotalRounds = totalRounds;
+            UpdateTournament(tournament);
+
+            return new OperationResult<IEnumerable<Round>>(true)
+            {
+                Entity = _roundRepository.GetRoundsByTournamentId(tournamentId).ToList()
+            };
+         }
+
+        public OperationResult RemoveRounds(Guid tournamentId)
+        {
+            var existingRounds = _roundRepository.GetRoundsByTournamentId(tournamentId);
+            var tournament = GetTournament(tournamentId);
+
+            foreach (var round in existingRounds)
+            {
+                _roundRepository.DeleteGraph(round);
+            }
+
+            _roundRepository.Save();
+
+            tournament.TotalRounds = 0;
+            UpdateTournament(tournament);
+
+            return new OperationResult(true);
+        }
+
+        public Round GetRoundByTournamentIdAndNumber(Guid tournamentId, int roundNumber)
+        {
+            var round = _roundRepository.GetRoundsByTournamentId(tournamentId).FirstOrDefault(r => r.RoundNumber == roundNumber);
+
+            return round;
+        }
+
+        // Matches
+        public IEnumerable<Match> GetMatches(Guid roundId)
+        {
+            var matches = _matchRepository
+                .GetMatchesByRoundId(roundId)
+                .OrderBy(p => p.HomeTeam.TeamName)
+                .ToList();
+
+            return matches;
+        }
+
+        public Match GetMatch(Guid matchId)
+        {
+            var match = _matchRepository.GetAll().FirstOrDefault(m => m.Id == matchId);
+
+            return match;
+        }
+
+        public Match UpdateMatch(Match match)
+        {
+            _matchRepository.Edit(match);
+            _matchRepository.Save();
+
+            return match;
         }
     }
 }
