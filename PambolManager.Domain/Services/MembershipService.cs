@@ -51,5 +51,25 @@ namespace PambolManager.Domain.Services
             _userManager.Dispose();
         }
 
+        public async Task<FieldManager> FindAsync(UserLoginInfo loginInfo)
+        {
+            FieldManager user = await _userManager.FindAsync(loginInfo);
+
+            return user;
+        }
+
+        public async Task<IdentityResult> CreateAsync(FieldManager user)
+        {
+            var result = await _userManager.CreateAsync(user);
+
+            return result;
+        }
+
+        public async Task<IdentityResult> AddLoginAsync(string userId, UserLoginInfo login)
+        {
+            var result = await _userManager.AddLoginAsync(userId, login);
+
+            return result;
+        }
     }
 }
