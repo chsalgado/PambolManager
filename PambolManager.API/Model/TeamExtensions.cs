@@ -17,7 +17,8 @@ namespace PambolManager.API.Model
             {
                 Id = team.Id,
                 TeamName = team.TeamName,
-                LogoPath = team.LogoPath
+                LogoPath = team.LogoPath,
+                TournamentId = team.TournamentId
             };
         }
     }

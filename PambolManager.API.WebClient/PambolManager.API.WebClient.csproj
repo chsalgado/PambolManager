@@ -59,14 +59,19 @@
   <ItemGroup>
     <Content Include="app\controllers\teamsController.js" />
     <Content Include="app\services\teamsService.js" />
+    <Content Include="app\views\createTeam.html" />
     <Content Include="app\views\createTournament.html" />
+    <Content Include="app\views\editTeam.html" />
     <Content Include="app\views\editTournament.html" />
+    <Content Include="app\views\teamOptions.html" />
+    <Content Include="app\views\teams.html" />
     <Content Include="app\views\tournamentOptions.html" />
     <Content Include="images\site\addTournament.png" />
     <Content Include="images\site\calendar.png" />
     <Content Include="images\site\defaultTournament.png" />
     <Content Include="images\site\delete.png" />
     <Content Include="images\site\edit.png" />
+    <Content Include="images\site\player.png" />
     <Content Include="images\site\standings.png" />
     <Content Include="images\site\teams.png" />
     <Content Include="scripts\angular-local-storage.min.js" />

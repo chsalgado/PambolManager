@@ -1,0 +1,28 @@
+﻿<section>
+    <h1><span>Equipos</span></h1>
+    <br />
+    <div class="container" ng-init="getTeams()">
+        <div class="row">
+            <div class="col-sm-4 col-md-4" style="height:200px;">
+                <a class="info-thumbnail-link" href="#/torneos/{{ selectedTournamentId }}/equipos/crear">
+                    <div class="thumbnail info-thumbnail background-clouds color-text">
+                        <img src="/images/site/addTournament.png" alt="ImagenAgregarEquipo" class="catIcon">
+                        <div class="special background-emerald color-white"><h3>Crear nuevo equipo</h3></div>
+                        <div class="caption bordered background-white" style="height:50px;">
+                            <p class="description">Da click aquí para crear un nuevo equipo</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-4 col-md-4" ng-repeat="team in teams" style="height:200px;">
+                <a class="info-thumbnail-link" href="#/equipos/{{ team.Id }}">
+                    <div class="thumbnail info-thumbnail background-clouds color-text">
+                        <img src="/images/site/teams.png" alt="ImagenEquipo" class="catIcon">
+                        <div class="special background-peter-river color-white"><h3>{{team.TeamName}}</h3></div>
+                    </div>
+                </a>
+                <br />
+            </div>
+        </div>
+    </div>
+</section>

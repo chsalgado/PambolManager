@@ -9,5 +9,7 @@ namespace PambolManager.API.Model.Dtos
         public string TeamName { get; set; }
 
         public string LogoPath { get; set; }
+
+        public Guid TournamentId { get; set; }
     }
 }

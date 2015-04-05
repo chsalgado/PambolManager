@@ -37,6 +37,26 @@ app.config(function ($routeProvider) {
         templateUrl: "/app/views/editTournament.html"
     });
 
+    $routeProvider.when("/torneos/:selectedTournamentId/equipos", {
+        controller: "teamsController",
+        templateUrl: "/app/views/teams.html"
+    });
+
+    $routeProvider.when("/torneos/:selectedTournamentId/equipos/crear", {
+        controller: "teamsController",
+        templateUrl: "/app/views/createTeam.html"
+    });
+
+    $routeProvider.when("/equipos/:selectedTeamId", {
+        controller: "teamsController",
+        templateUrl: "/app/views/teamOptions.html"
+    });
+
+    $routeProvider.when("/equipos/:selectedTeamId/editar", {
+        controller: "teamsController",
+        templateUrl: "/app/views/editTeam.html"
+    });
+
     $routeProvider.otherwise({ redirectTo: "/home" });
 });
 

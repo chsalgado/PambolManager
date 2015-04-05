@@ -1,0 +1,16 @@
+﻿<form ng-init="getSelectedTeam()">
+    <h1>Editar equipo</h1>
+    <hr />
+    <div class="form-group">
+        <label class="control-label col-md-2">Nombre de equipo</label>
+        <input type="text" class="form-control" placeholder="Nombre del equipo" data-ng-model="requestModel.TeamName" required autofocus>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button class="btn btn-primary" type="submit" data-ng-click="editTeam()">Editar equipo</button>
+            <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'text-success' : 'text-danger'">
+                {{message}}
+            </div>
+        </div>
+    </div>
+</form>
