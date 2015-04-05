@@ -11,5 +11,6 @@ namespace PambolManager.API.Model.Dtos
         public int Age { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
+        public Guid TeamId { get; set; }
     }
 }

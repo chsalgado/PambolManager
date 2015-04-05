@@ -57,6 +57,26 @@ app.config(function ($routeProvider) {
         templateUrl: "/app/views/editTeam.html"
     });
 
+    $routeProvider.when("/equipos/:selectedTeamId/jugadores", {
+        controller: "playersController",
+        templateUrl: "/app/views/players.html"
+    });
+
+    $routeProvider.when("/equipos/:selectedTeamId/jugadores/crear", {
+        controller: "playersController",
+        templateUrl: "/app/views/createPlayer.html"
+    });
+
+    $routeProvider.when("/jugadores/:selectedPlayerId", {
+        controller: "playersController",
+        templateUrl: "/app/views/playerOptions.html"
+    });
+
+    $routeProvider.when("/jugadores/:selectedPlayerId/editar", {
+        controller: "playersController",
+        templateUrl: "/app/views/editPlayer.html"
+    });
+
     $routeProvider.otherwise({ redirectTo: "/home" });
 });
 

@@ -100,7 +100,6 @@
     <Compile Include="Config\RouteConfig.cs" />
     <Compile Include="Config\WebAPIConfig.cs" />
     <Compile Include="Controllers\MatchesController.cs" />
-    <Compile Include="Controllers\OdersController.cs" />
     <Compile Include="Controllers\PlayersController.cs" />
     <Compile Include="Controllers\RoundsController.cs" />
     <Compile Include="Controllers\StandingsController.cs" />

@@ -57,12 +57,18 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\controllers\playersController.js" />
     <Content Include="app\controllers\teamsController.js" />
+    <Content Include="app\services\playersService.js" />
     <Content Include="app\services\teamsService.js" />
+    <Content Include="app\views\createPlayer.html" />
     <Content Include="app\views\createTeam.html" />
     <Content Include="app\views\createTournament.html" />
+    <Content Include="app\views\editPlayer.html" />
     <Content Include="app\views\editTeam.html" />
     <Content Include="app\views\editTournament.html" />
+    <Content Include="app\views\playerOptions.html" />
+    <Content Include="app\views\players.html" />
     <Content Include="app\views\teamOptions.html" />
     <Content Include="app\views\teams.html" />
     <Content Include="app\views\tournamentOptions.html" />

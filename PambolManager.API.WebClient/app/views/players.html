@@ -1,0 +1,35 @@
+﻿<section>
+    <h1><span>Jugadores</span></h1>
+    <br />
+    <div class="container" ng-init="getPlayers()">
+        <div class="row">
+            <div class="col-sm-4 col-md-4" style="height:350px;">
+                <a class="info-thumbnail-link" href="#/equipos/{{ selectedTeamId }}/jugadores/crear">
+                    <div class="thumbnail info-thumbnail background-clouds color-text">
+                        <img src="/images/site/addTournament.png" alt="ImagenAgregarJugador" class="catIcon">
+                        <div class="special background-emerald color-white"><h3>Crear nuevo jugador</h3></div>
+                        <div class="caption bordered background-white" style="height:50px;">
+                            <p class="description">Da click aquí para crear un nuevo jugador</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-4 col-md-4" ng-repeat="player in players" style="height:350px;">
+                <a class="info-thumbnail-link" href="#/jugadores/{{ player.Id }}">
+                    <div class="thumbnail info-thumbnail background-clouds color-text">
+                        <img src="/images/site/player.png" alt="ImagenJugador" class="catIcon">
+                        <div class="special background-peter-river color-white"><h3>{{player.Name}}</h3></div>
+                        <div class="caption bordered background-white" style="height:150px;">
+                            <p class="description">Apellidos: {{player.LastName}}</p>
+                            <p class="description">Edad: {{player.Age}}</p>
+                            <p class="description">Teléfono: {{player.PhoneNumber}}</p>
+                            <p class="description">Email: {{player.Email}}</p>
+                        </div>
+                    </div>
+                </a>
+                <br />
+            </div>
+        </div>
+    </div>
+</section>
+

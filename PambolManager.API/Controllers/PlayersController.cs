@@ -48,6 +48,26 @@ namespace PambolManager.API.Controllers
             return players.ToPaginatedDto(players.Select(p => p.ToPlayerDto()));
         }
 
+        // GET api/players?id=00000000-0000-0000-0000-000000000000
+        public async Task<PlayerDto> GetTeamAsync(Guid id)
+        {
+            FieldManager currentManager = await _membershipService.FindUserByNameAsync(User.Identity.Name);
+
+            var player = _managementService.GetPlayer(id);
+
+            if (player == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+
+            if (!_managementService.IsTournamentOwnedByUser(player.Team.Tournament, currentManager.Id))
+            {
+                throw new HttpResponseException(HttpStatusCode.Unauthorized);
+            }
+
+            return player.ToPlayerDto();
+        }
+
         // POST api/players
         public async Task<HttpResponseMessage> PostPlayerAsync(PlayerRequestModel requestModel)
         {

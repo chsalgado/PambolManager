@@ -1,0 +1,34 @@
+﻿<section>
+    <h1><span>Opciones de equipo</span></h1>
+    <br />
+    <div class="container">
+        <div class="row">
+            <!--Edit team-->
+            <div class="col-sm-4 col-md-4" style="height:350px;">
+                <a class="info-thumbnail-link" href="#/jugadores/{{ selectedPlayerId }}/editar">
+                    <div class="thumbnail info-thumbnail background-clouds color-text">
+                        <img src="/images/site/edit.png" alt="ImagenEditar" class="catIcon">
+                        <div class="special background-peter-river color-white"><h3>Editar</h3></div>
+                        <div class="caption bordered background-white" style="height:50px;">
+                            <p class="description">Da click aquí para editar el jugador</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!--Delete tournament-->
+            <div class="col-sm-4 col-md-4" style="height:350px;">
+                <a class="info-thumbnail-link" ng-click="deletePlayer()">
+                    <div class="thumbnail info-thumbnail background-clouds color-text">
+                        <img src="/images/site/delete.png" alt="ImagenBorrar" class="catIcon">
+                        <div class="special background-carrot color-white"><h3>Borrar</h3></div>
+                        <div class="caption bordered background-white" style="height:50px;">
+                            <p class="description">Da click aquí para borrar el jugador</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>

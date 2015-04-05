@@ -1,0 +1,32 @@
+﻿<form ng-init="getSelectedPlayer()">
+    <h1>Editar jugador</h1>
+    <hr />
+    <div class="form-group">
+        <label class="control-label col-md-2">Nombre</label>
+        <input type="text" class="form-control" placeholder="Nombre" data-ng-model="requestModel.Name" required autofocus>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Apellido</label>
+        <input type="text" class="form-control" placeholder="Apellido" data-ng-model="requestModel.LastName" required autofocus>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Edad</label>
+        <input type="text" class="form-control" placeholder="Edad" data-ng-model="requestModel.Age" required autofocus>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Teléfono</label>
+        <input type="text" class="form-control" placeholder="Teléfono" data-ng-model="requestModel.PhoneNumber" required autofocus>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Email</label>
+        <input type="text" class="form-control" placeholder="Email" data-ng-model="requestModel.Email" required autofocus>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button class="btn btn-primary" type="submit" data-ng-click="editPlayer()">Editar jugador</button>
+            <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'text-success' : 'text-danger'">
+                {{message}}
+            </div>
+        </div>
+    </div>
+</form>

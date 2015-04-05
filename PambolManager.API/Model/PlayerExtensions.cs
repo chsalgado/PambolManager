@@ -15,6 +15,7 @@ namespace PambolManager.API.Model
                 Age = player.Age,
                 PhoneNumber = player.PhoneNumber,
                 Email = player.Email,
+                TeamId = player.TeamId
             };
         }
     }
