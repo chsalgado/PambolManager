@@ -1,0 +1,73 @@
+﻿<section>
+    <h1><span>Opciones de torneo</span></h1>
+    <br />
+    <div class="container">
+        <div class="row">
+            <!--View teams-->
+            <div class="col-sm-4 col-md-4" style="height:350px;">
+                <a class="info-thumbnail-link" href="#/torneos/{{ selectedTournamentId }}/equipos">
+                    <div class="thumbnail info-thumbnail background-clouds color-text">
+                        <img src="/images/site/teams.png" alt="ImagenEquipos" class="catIcon">
+                        <div class="special background-emerald color-white"><h3>Equipos</h3></div>
+                        <div class="caption bordered background-white" style="height:50px;">
+                            <p class="description">Da click aquí para administrar equipos</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!--View calendar-->
+            <div class="col-sm-4 col-md-4" style="height:350px;">
+                <a class="info-thumbnail-link" href="#/torneos/{{ selectedTournamentId }}/calendario">
+                    <div class="thumbnail info-thumbnail background-clouds color-text">
+                        <img src="/images/site/calendar.png" alt="ImagenCalendario" class="catIcon">
+                        <div class="special background-emerald color-white"><h3>Calendario</h3></div>
+                        <div class="caption bordered background-white" style="height:50px;">
+                            <p class="description">Da click aquí para administrar el calendario</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!--View standings-->
+            <div class="col-sm-4 col-md-4" style="height:350px;">
+                <a class="info-thumbnail-link" href="#/torneos/{{ selectedTournamentId }}/tabla">
+                    <div class="thumbnail info-thumbnail background-clouds color-text">
+                        <img src="/images/site/standings.png" alt="ImagenTabla" class="catIcon">
+                        <div class="special background-emerald color-white"><h3>Tabla</h3></div>
+                        <div class="caption bordered background-white" style="height:50px;">
+                            <p class="description">Da click aquí para ver la tabla del torneo</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!--Edit tournament-->
+            <div class="col-sm-4 col-md-4" style="height:350px;">
+                <a class="info-thumbnail-link" href="#/torneos/{{ selectedTournamentId }}/editar">
+                    <div class="thumbnail info-thumbnail background-clouds color-text">
+                        <img src="/images/site/edit.png" alt="ImagenEditar" class="catIcon">
+                        <div class="special background-peter-river color-white"><h3>Editar</h3></div>
+                        <div class="caption bordered background-white" style="height:50px;">
+                            <p class="description">Da click aquí para editar el torneo</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!--Delete tournament-->
+            <div class="col-sm-4 col-md-4" style="height:350px;">
+                <a class="info-thumbnail-link" ng-click="deleteTournament()">
+                    <div class="thumbnail info-thumbnail background-clouds color-text">
+                        <img src="/images/site/delete.png" alt="ImagenBorrar" class="catIcon">
+                        <div class="special background-carrot color-white"><h3>Borrar</h3></div>
+                        <div class="caption bordered background-white" style="height:50px;">
+                            <p class="description">Da click aquí para borrar el torneo</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>

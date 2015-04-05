@@ -45,12 +45,12 @@ namespace PambolManager.Domain.Services
 
         public OperationResult<Tournament> AddTournament(Tournament tournament)
         {
-            var currentManager = _membershipService.FindUserByNameAsync(tournament.FieldManagerId);
+            //var currentManager = _membershipService.(tournament.FieldManagerId);
             
-            if (currentManager == null)
-            {
-                return new OperationResult<Tournament>(false);
-            }
+            //if (currentManager == null)
+            //{
+            //    return new OperationResult<Tournament>(false);
+            //}
 
             tournament.Id = Guid.NewGuid();
             tournament.TotalRounds = 0;

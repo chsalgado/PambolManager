@@ -1,0 +1,24 @@
+﻿<form ng-init="getSelectedTournament()">
+    <h1>Editar torneo</h1>
+    <hr />
+    <div class="form-group">
+        <label class="control-label col-md-2">Nombre de torneo</label>
+        <input type="text" class="form-control" data-ng-model="requestModel.TournamentName" required autofocus>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Descripción</label>
+        <input type="text" class="form-control" data-ng-model="requestModel.Description" required>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Máximo de equipos</label>
+        <input type="text" class="form-control" data-ng-model="requestModel.MaxTeams" required>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button class="btn btn-primary" type="submit" data-ng-click="editTournament()">Editar torneo</button>
+            <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'text-success' : 'text-danger'">
+                {{message}}
+            </div>
+        </div>
+    </div>
+</form>

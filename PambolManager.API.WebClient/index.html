@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-ng-app="PambolManagerApp">
+<head>
+    <meta charset="utf-8" />
+    <title>Pambol Manager</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,300italic,400italic,700italic|Lustria" rel="stylesheet" type="text/css">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="content/css/neat-green.css" rel="stylesheet" />
+    <link href="content/css/loading-bar.css" rel="stylesheet" />
+    <link href="content/css/Site.css" rel="stylesheet" />
+
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        .menu-header {
+            padding-bottom: 40px;
+        }
+
+        #wrapper {
+            min-height: 100%;
+            height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+            height: 100%;
+            margin: 0 auto -180px; /* the bottom margin is the negative value of the footer's height */
+        }
+
+        footer, #push {
+            height: 180px; /* .push must be the same height as .footer */
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="wrapper">
+        <div id="nav-wrapper" class="background-white color-black menu-header">
+            <nav id="mainMenu" class="navbar navbar-fixed-top scroll" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar background-lead"></span>
+                            <span class="icon-bar background-lead"></span>
+                            <span class="icon-bar background-lead"></span>
+                        </button>
+                        <a class="navbar-brand" href="#/">
+                            <img src="/images/site/logoAGMSmin.png" alt="logo">
+                            Home
+                        </a>
+                    </div>
+                    <div class="navbar-collapse collapse" data-ng-controller="indexController">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li data-ng-hide="!authentication.isAuth"><a href="#">¡Hola, {{authentication.userName}}!</a></li>
+                            <li id="tournaments" data-ng-hide="!authentication.isAuth"><a href="#/torneos">Mis torneos</a></li>
+                            <li data-ng-hide="!authentication.isAuth"><a href="" data-ng-click="logOut()">Logout</a></li>
+                            <li data-ng-hide="authentication.isAuth"> <a href="#/login">Login</a></li>
+                            <li data-ng-hide="authentication.isAuth"> <a href="#/signup">Registrarse</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!--Load partial views-->
+
+        <div class="container body-content">
+            <div data-ng-view="">
+            </div>
+        </div>
+
+        <!--End of partial view-->
+        <div id="push"></div>
+    </div>
+
+    <footer class="background-midnight-blue color-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-6">
+                            &copy; 2015 - PambolManager
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 3rd party libraries -->
+    <script src="scripts/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js"></script>
+    <script src="scripts/angular-local-storage.min.js"></script>
+    <script src="scripts/loading-bar.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+
+    <!-- Load app main script -->
+    <script src="app/app.js"></script>
+    
+    <!-- Load services -->
+    <script src="app/services/authInterceptorService.js"></script>
+    <script src="app/services/authService.js"></script>
+    <script src="app/services/tournamentsService.js"></script>
+    <script src="app/services/teamsService.js"></script>
+    
+    <!-- Load controllers -->
+    <script src="app/controllers/indexController.js"></script>
+    <script src="app/controllers/homeController.js"></script>
+    <script src="app/controllers/loginController.js"></script>
+    <script src="app/controllers/signupController.js"></script>
+    <script src="app/controllers/tournamentsController.js"></script>
+    <script src="app/controllers/teamsController.js"></script>
+
+</body>
+</html>

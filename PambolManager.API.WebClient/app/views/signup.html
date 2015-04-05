@@ -1,0 +1,25 @@
+﻿<form>
+    <h1>Registro</h1>
+    <hr />
+    <div class="form-group">
+        <label class="control-label col-md-2">Nombre de usuario</label>
+        <input type="text" class="form-control" placeholder="Nombre de usuario" data-ng-model="registration.userName" required autofocus>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Confirmar contraseña</label>
+        <input type="password" class="form-control" placeholder="Password" data-ng-model="registration.password" required>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Confirmar contraseña</label>
+        <input type="password" class="form-control" placeholder="Contraseña" data-ng-model="registration.confirmPassword" required>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button class="btn btn-primary" type="submit" data-ng-click="signUp()">Registrarse</button>
+            <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'text-success' : 'text-danger'">
+                {{message}}
+            </div>
+        </div>
+    </div>
+</form>
+

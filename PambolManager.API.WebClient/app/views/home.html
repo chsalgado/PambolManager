@@ -1,0 +1,134 @@
+﻿<div class="responsive-slider-parallax" data-spy="responsive-slider" data-parallax="true" data-parallax-direction="-1" data-transitiontime="1000" data-autoplay="true" style="background-image: url(/images/site/parallax.jpg)">
+<div class="slides-container" data-group="slides">
+    <ul>
+        <li>
+            <div class="slide-body" data-group="slide">
+                <div class="container">
+                    <div class="wrapper">
+                        <div class="caption header" data-animate="slideAppearRightToLeft" data-delay="0" data-length="300">
+                            <h2>PambolManager</h2>
+                            <p class="sub text-left" data-animate="slideAppearLeftToRight" data-delay="300" data-length="300"><span>Sistema de gestión de canchas de futbol</span></p>
+                            <p class="sub text-left" data-animate="slideAppearLeftToRight" data-delay="500" data-length="300"><span>Crea torneos</span></p>
+                            <p class="sub text-left" data-animate="slideAppearLeftToRight" data-delay="700" data-length="300"><span>Ve la tabla general</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="slide-body" data-group="slide">
+                <div class="container">
+                    <div class="wrapper">
+                        <div class="caption header text-center" data-animate="slideAppearUpToDown" data-delay="0" data-length="300">
+                            <h2>AGMS</h2>
+                            <p class="sub" data-animate="slideAppearDownToUp" data-delay="300" data-length="300"><span>Crea calendarios round robin</span></p>
+                            <p class="sub" data-animate="slideAppearDownToUp" data-delay="500" data-length="300"><span>Mira los partidos por jornada</span></p>
+                            <p class="sub" data-animate="slideAppearDownToUp" data-delay="700" data-length="300"><span>Actualiza los marcadores de cada partido</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="slide-body" data-group="slide">
+                <div class="container">
+                    <div class="wrapper">
+                        <div class="caption header text-right" data-animate="slideAppearDownToUp" data-delay="0" data-length="300">
+                            <h2>AGMS</h2>
+                            <p class="sub" data-animate="slideAppearUpToDown" data-delay="300" data-length="300"><span>Añade equipos</span></p>
+                            <p class="sub" data-animate="slideAppearUpToDown" data-delay="500" data-length="300"><span>Añade jugadores</span></p>
+                            <p class="sub" data-animate="slideAppearUpToDown" data-delay="700" data-length="300"><span>Consulta estadísticas</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<a class="slider-control left hidden-xs hidden-sm" href="#" data-jump="prev"><i class="fa fa-angle-left"></i></a>
+<a class="slider-control right hidden-xs hidden-sm" href="#" data-jump="next"><i class="fa fa-angle-right"></i></a>
+<div class="pages-wrapper background-black">
+    <ol class="pages">
+        <li><a data-jump-to="1">1</a></li>
+        <li><a data-jump-to="2">2</a></li>
+        <li><a data-jump-to="3">3</a></li>
+    </ol>
+</div>
+<br />
+
+<section>
+    <div class="container">
+        <h1 class="text-center x-large">Características</h1>
+    </div>
+</section>
+
+<section class="border background-white color-black">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <h1 class="no-border large text-left">Una cuenta, muchas posibilidades</h1>
+                <p class="lead text-left">
+                    Una cuenta de Google es todo lo que necesitas para poder usar nuestra página y acceder a servicios que facilitarán la administración de tu cancha.
+                </p>
+            </div>
+            <div class="col-md-5">
+                <div class="thumbnail info-thumbnail color-text">
+                    <img src="" alt="Imagen cancha">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="border background-white color-black">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="thumbnail info-thumbnail color-text">
+                    <img src="" alt="Panel de control">
+                </div>
+            </div>
+            <div class="col-md-7">
+                <h1 class="no-border large text-left">Un panel que controla todo</h1>
+                <p class="lead text-left">
+                    Al crear una cuenta, obtienes acceso a un panel de control donde puedes crear torneos, ver los existentes y realizar cambios en ellos.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="border background-white color-black">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <h1 class="no-border large text-left">Registra equipos y jugadores</h1>
+                <p class="lead text-left">
+                    Añadir equipos y jugadores a un torneo es muy sencillo, así sabrás en todo momento quiénes pertenecen a un equipo en particular.
+                </p>
+            </div>
+            <div class="col-md-5">
+                <div class="thumbnail info-thumbnail color-text">
+                    <img src="" alt="Equipos y jugadores">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    $(window).load(function(){
+      if ($(window).width() > 767) {
+        matchHeight($('.info-thumbnail .caption .description'), 3);
+      }
+
+      $(window).on('resize', function(){
+        if ($(window).width() > 767) {
+          $('.info-thumbnail .caption .description').height('auto');
+          matchHeight($('.info-thumbnail .caption .description'), 3);
+        }
+      });
+    });
+</script>
+
+<script src="../../scripts/template/responsive-slider.js"></script>

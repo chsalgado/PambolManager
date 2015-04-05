@@ -16,7 +16,9 @@ namespace PambolManager.API.Model
                 TotalRounds = tournament.TotalRounds,
                 MaxTeams = tournament.MaxTeams,
                 BeginDate = tournament.BeginDate,
-                EndDate = tournament.EndDate
+                EndDate = tournament.EndDate,
+                Description = tournament.Description,
+                TeamsQty = tournament.Teams == null ? 0 : tournament.Teams.Count
             };
         }
     }

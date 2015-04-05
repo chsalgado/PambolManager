@@ -1,0 +1,40 @@
+﻿<script>
+    $(function () {
+        $('#tournaments').addClass("active");
+    })
+</script>
+
+<section>
+    <h1><span>Torneos</span></h1>
+        <br />
+        <div class="container" ng-init="getTournaments()">
+            <div class="row">
+                <div class="col-sm-4 col-md-4" style="height:350px;">
+                    <a class="info-thumbnail-link" href="#/torneos/crear">
+                        <div class="thumbnail info-thumbnail background-clouds color-text">
+                            <img src="/images/site/addTournament.png" alt="ImagenAgregarTorneo" class="catIcon">
+                            <div class="special background-emerald color-white"><h3>Crear nuevo torneo</h3></div>
+                            <div class="caption bordered background-white" style="height:50px;">
+                                <p class="description">Da click aquí para crear un nuevo torneo</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-4 col-md-4" ng-repeat="tournament in tournaments" style="height:350px;">
+                    <a class="info-thumbnail-link" href="#/torneos/{{ tournament.Id }}">
+                        <div class="thumbnail info-thumbnail background-clouds color-text">
+                            <img src="/images/site/defaultTournament.png" alt="ImagenTorneo" class="catIcon">
+                            <div class="special background-peter-river color-white"><h3>{{tournament.TournamentName}}</h3></div>
+                            <div class="caption bordered background-white" style="height:150px;">
+                                <p class="description">{{tournament.Description}}</p>
+                                <p class="description">Equipos: {{tournament.TeamsQty}}</p>
+                                <p class="description">Máximo equipos: {{tournament.MaxTeams}}</p>
+                                <p ng-hide="tournament.TotalRounds == 0" class="description">Jornadas: {{tournament.TotalRounds}}</p>
+                            </div>
+                        </div>
+                    </a>
+                    <br />
+                </div>
+            </div>
+        </div>
+</section>
