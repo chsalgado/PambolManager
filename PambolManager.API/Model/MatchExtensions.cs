@@ -15,6 +15,8 @@ namespace PambolManager.API.Model
                 HomeGoals = match.HomeGoals,
                 AwayGoals = match.AwayGoals,
                 IsScoreSet = match.IsScoreSet,
+                HomeTeamName = match.HomeTeam.TeamName,
+                AwayTeamName = match.AwayTeam.TeamName
             };
         }
     }

@@ -77,6 +77,11 @@ app.config(function ($routeProvider) {
         templateUrl: "/app/views/editPlayer.html"
     });
 
+    $routeProvider.when("/torneos/:selectedTournamentId/calendario", {
+        controller: "matchesController",
+        templateUrl: "/app/views/matches.html"
+    });
+
     $routeProvider.otherwise({ redirectTo: "/home" });
 });
 

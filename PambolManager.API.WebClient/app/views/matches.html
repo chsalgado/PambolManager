@@ -1,0 +1,58 @@
+﻿<section>
+    <h1><span>Calendario</span></h1>
+    <br />
+    <div class="container" ng-init="setTotalRounds()">
+        <div class="row">
+            <div class="col-sm-1 col-md-1" ng-repeat="i in getTotalRounds(totalRounds) track by $index">
+                <a class="btn btn-primary" ng-click="getMatches($index + 1)">J{{ $index + 1 }}</a>
+            </div>
+        </div>
+        <div class="row" ng-init="getMatches(1)">
+            <div class="col-sm-12 col-md-12">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Local</th>
+                            <th>Goles</th>
+                            <th></th>
+                            <th>Goles</th>
+                            <th>Visitante</th>
+                            <th>Jugado</th>
+                            <th>Guardar</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-ng-repeat="match in matches track by $index">
+                            <td>
+                                {{ match.HomeTeamName }}
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" placeholder="0" data-ng-model="match.HomeGoals" required autofocus>
+                            </td>
+                            <td>
+                                -
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" placeholder="0" data-ng-model="match.AwayGoals" required autofocus>
+                            </td>
+                            <td>
+                                {{ match.AwayTeamName }}
+                            </td>
+                            <td>
+                                <input type="checkbox" data-ng-model="match.IsScoreSet" disabled="disabled">
+                            </td>
+                            <td>
+                                <a class="btn btn-primary" ng-click="editScore($index)">Guardar</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-danger" ng-click="deleteScore($index)">Eliminar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</section>

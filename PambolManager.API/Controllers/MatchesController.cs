@@ -27,7 +27,7 @@ namespace PambolManager.API.Controllers
             _membershipService = new MembershipService();
         }
 
-        // GET api/matches?tournamentId=00000000-0000-0000-0000-000000000000&round=5
+        // GET api/matches?tournamentId=00000000-0000-0000-0000-000000000000&roundNumber=5
         public async Task<IEnumerable<MatchDto>> GetMatchesAsync(Guid tournamentId, int roundNumber)
         {
             var round = _managementService.GetRoundByTournamentIdAndNumber(tournamentId, roundNumber);
@@ -78,7 +78,7 @@ namespace PambolManager.API.Controllers
             return updatedMatch.ToMatchDto();
         }
 
-        // DELETE api/Teams?id=00000000-0000-0000-0000-000000000000
+        // DELETE api/matches?id=00000000-0000-0000-0000-000000000000
         public async Task<HttpResponseMessage> DeleteScoreAsync(Guid id)
         {
             var match = _managementService.GetMatch(id);
